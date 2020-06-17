@@ -48,7 +48,7 @@ namespace LinkedLists
             }
 
             Console.WriteLine("\nПрибавляю к каждому + 3 и вывожу: ");
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Length; i++)
             {
                 list[i] += 3;
                 Console.WriteLine(list[i]);
@@ -69,6 +69,35 @@ namespace LinkedLists
                 list[i] += 3;
                 Console.WriteLine(list[i]);
             }
+
+            Console.WriteLine("\nНачинается тест метода удаления каждого 3 элемента.\nДобавляю 5 элементов к списку (от 0 до 5):");
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(i);
+            }
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nУдаляю: \n");
+            list.RemoveEveryThirdEl();
+
+            Console.WriteLine("Вывод: ");
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Вывод с помощью цикла: ");
+            for (int i = 0; i < list.Length; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+
+            Console.WriteLine("Вывод с помощью индексаторов (должно было остаться 2 числа): ");
+            Console.WriteLine(list[0]);
+            Console.WriteLine(list[1]);
         }
 
         /// <summary>
@@ -104,7 +133,7 @@ namespace LinkedLists
 
                 Console.WriteLine("\nУдаляю первый и последний. Далее опять первый\n");
 
-                list.Remove(list.Count - 1);
+                list.Remove(list.Length - 1);
                 list.Remove(0);
                 list.Remove(0);
 
@@ -127,7 +156,7 @@ namespace LinkedLists
                 list.Add("Выживший первый");
                 list.Add("Не выживший второй");
 
-                list.Remove(list.Count - 1);
+                list.Remove(list.Length - 1);
 
                 foreach (var item in list)
                 {

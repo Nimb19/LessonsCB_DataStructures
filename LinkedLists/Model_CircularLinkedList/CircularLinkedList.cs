@@ -7,7 +7,7 @@ namespace Model_CircularLinkedList
     public class CircularLinkedList<T> : IEnumerable
     {
         private ItemDoubly<T> head { get; set; }
-        public int Count { get; set; }
+        public int Length { get; set; }
 
         public CircularLinkedList()
         {
@@ -23,7 +23,7 @@ namespace Model_CircularLinkedList
         {
             if (data != null)
             {
-                if (Count == 0)
+                if (Length == 0)
                 {
                     SetFirstProps(data);
                     return;
@@ -34,7 +34,7 @@ namespace Model_CircularLinkedList
                 item.Previous = head.Previous;
                 head.Previous = item;
                 item.Previous.Next = item;
-                Count++;
+                Length++;
             }
             else
             {
@@ -44,7 +44,7 @@ namespace Model_CircularLinkedList
 
         public void Remove(int index)
         {
-            if (index < 0 || index >= Count)
+            if (index < 0 || index >= Length)
             {
                 throw new ArgumentOutOfRangeException(nameof(index), "Индекс выходит за границы массива.\n" +
                 "Индекс должен быть положительным целочисленным числом " +
@@ -53,7 +53,7 @@ namespace Model_CircularLinkedList
 
             ItemDoubly<T> current = head;
 
-            if (Count - index >= index)
+            if (Length - index >= index)
             {
                 for (int i = 0; i <= index; i++)
                 {
@@ -65,7 +65,7 @@ namespace Model_CircularLinkedList
                         }
                         current.Previous.Next = current.Next;
                         current.Next.Previous = current.Previous;
-                        Count--;
+                        Length--;
                         return;
                     }
 
@@ -74,17 +74,42 @@ namespace Model_CircularLinkedList
             }
             else
             {
-                for (int i = Count; i >= index; i--)
+                for (int i = Length; i >= index; i--)
                 {
                     if (i == index)
                     {
                         current.Previous = current.Next;
                         current.Next.Previous = current.Previous;
-                        Count--;
+                        Length--;
                         return;
                     }
 
                     current = current.Previous;
+                }
+            }
+        }
+
+        public void RemoveEveryThirdEl()
+        {
+            ItemDoubly<T> current = head.Previous;
+
+            while (Length > 2)
+            {
+                for (int i = 0; i <= 2; i++)
+                {
+                    current = current.Next;
+                    
+                    if (i == 2)
+                    {
+                        if (current == head)
+                        {
+                            head = current.Next;
+                        }
+                        current.Previous.Next = current.Next;
+                        current.Next.Previous = current.Previous;
+                        Length--;
+                        Console.WriteLine("Удалён элемент " + current.Data);
+                    }
                 }
             }
         }
@@ -98,7 +123,7 @@ namespace Model_CircularLinkedList
         {
             get
             {
-                if (index < 0 || index >= Count)
+                if (index < 0 || index >= Length)
                 {
                     throw new ArgumentOutOfRangeException(nameof(index), "Индекс выходит за границы массива.\n" +
                     "Индекс должен быть положительным целочисленным числом " +
@@ -107,7 +132,7 @@ namespace Model_CircularLinkedList
 
                 ItemDoubly<T> current = head;
 
-                if (Count - index >= index)
+                if (Length - index >= index)
                 {
                     for (int i = 0; i <= index; i++)
                     {
@@ -121,7 +146,7 @@ namespace Model_CircularLinkedList
                 }
                 else 
                 {
-                    for (int i = Count; i >= index; i--)
+                    for (int i = Length; i >= index; i--)
                     {
                         if (i == index)
                         {
@@ -136,7 +161,7 @@ namespace Model_CircularLinkedList
             }
             set
             {
-                if (index < 0 || index >= Count)
+                if (index < 0 || index >= Length)
                 {
                     throw new ArgumentOutOfRangeException(nameof(index), "Индекс выходит за границы массива.\n" +
                     "Индекс должен быть положительным целочисленным числом " +
@@ -150,7 +175,7 @@ namespace Model_CircularLinkedList
 
                 ItemDoubly<T> current = head;
 
-                if (Count - index >= index)
+                if (Length - index >= index)
                 {
                     for (int i = 0; i <= index; i++)
                     {
@@ -164,7 +189,7 @@ namespace Model_CircularLinkedList
                 }
                 else
                 {
-                    for (int i = Count; i >= index; i--)
+                    for (int i = Length; i >= index; i--)
                     {
                         if (i == index)
                         {
@@ -183,19 +208,19 @@ namespace Model_CircularLinkedList
             head = item;
             head.Next = item;
             head.Previous = item;
-            Count++;
+            Length++;
         }
 
         private void SetDefaultProps()
         {
             head = null;
-            Count = 0;
+            Length = 0;
         }
 
         public IEnumerator GetEnumerator()
         {
             ItemDoubly<T> curr = head.Previous;
-            for(int i = 0; i < Count; i++)
+            for(int i = 0; i < Length; i++)
             {
                 curr = curr.Next;
                 yield return curr.Data;

@@ -8,13 +8,13 @@ namespace Model_SinglyLinkedList
     {
         public ItemSingly<T> Head { get; private set; }
         public ItemSingly<T> Tail { get; private set; }
-        public int Count { get; private set; }
+        public int Length { get; private set; }
 
         public SinglyLinkedList()
         {
             Head = null;
             Tail = null;
-            Count = 0;
+            Length = 0;
         }
 
         public SinglyLinkedList(T data)
@@ -29,7 +29,7 @@ namespace Model_SinglyLinkedList
             {
                 Tail.Next = ItemSingly;
                 Tail = ItemSingly;
-                Count++;
+                Length++;
             }
             else
             {
@@ -39,7 +39,7 @@ namespace Model_SinglyLinkedList
 
         public void Remove(int index)
         {
-            if (index + 1 > Count || index < 0)
+            if (index + 1 > Length || index < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(index), "Индекс выходит за границы массива.\n" +
                     "Индекс должен быть положительным целочисленным числом " +
@@ -49,8 +49,8 @@ namespace Model_SinglyLinkedList
             if (index == 0)
             {
                 Head = Head.Next;
-                Count--;
-                if (Count == 0)
+                Length--;
+                if (Length == 0)
                 {
                     Tail = null;
                 }
@@ -65,8 +65,8 @@ namespace Model_SinglyLinkedList
                 if (i + 1 == index)
                 {
                     previous.Next = current.Next;
-                    Count--;
-                    if (index == Count)
+                    Length--;
+                    if (index == Length)
                     {
                         Tail = previous;
                     }
@@ -83,7 +83,7 @@ namespace Model_SinglyLinkedList
             var ItemSingly = new ItemSingly<T>(data);
             Head = ItemSingly;
             Tail = ItemSingly;
-            Count++;
+            Length++;
         }
 
         public IEnumerator GetEnumerator()
@@ -101,7 +101,7 @@ namespace Model_SinglyLinkedList
         {
             get
             {
-                if (index + 1 > Count || index < 0)
+                if (index + 1 > Length || index < 0)
                 {
                     throw new ArgumentOutOfRangeException(nameof(index), "Индекс выходит за границы массива.\n" +
                         "Индекс должен быть положительным целочисленным числом " +
@@ -123,7 +123,7 @@ namespace Model_SinglyLinkedList
             }
             set
             {
-                if (index + 1 > Count || index < 0)
+                if (index + 1 > Length || index < 0)
                 {
                     throw new ArgumentOutOfRangeException("Индекс выходит за границы массива. " +
                         "Индекс должен быть положительным целочисленным числом, " +
