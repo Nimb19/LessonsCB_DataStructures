@@ -66,6 +66,10 @@ namespace Model_CircularLinkedList
                         current.Previous.Next = current.Next;
                         current.Next.Previous = current.Previous;
                         Length--;
+                        if (Length == 0)
+                        {
+                            SetDefaultProps();
+                        }
                         return;
                     }
 
