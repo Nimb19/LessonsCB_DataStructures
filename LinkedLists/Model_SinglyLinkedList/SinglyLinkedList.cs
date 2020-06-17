@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace LinkedLists
+namespace Model_SinglyLinkedList
 {
-    class SinglyLinkedList<T> : IEnumerable<T>
+    class SinglyLinkedList<T> : IEnumerable
     {
-        public Item<T> Head { get; private set; }
-        public Item<T> Tail { get; private set; }
+        public ItemSingly<T> Head { get; private set; }
+        public ItemSingly<T> Tail { get; private set; }
         public int Count { get; private set; }
 
         public SinglyLinkedList()
@@ -24,11 +24,11 @@ namespace LinkedLists
 
         public void Add(T data)
         {
-            var item = new Item<T>(data);
+            var ItemSingly = new ItemSingly<T>(data);
             if (Tail != null)
             {
-                Tail.Next = item;
-                Tail = item;
+                Tail.Next = ItemSingly;
+                Tail = ItemSingly;
                 Count++;
             }
             else
@@ -57,8 +57,8 @@ namespace LinkedLists
                 return;
             }
 
-            Item<T> previous = Head;
-            Item<T> current = Head.Next;
+            ItemSingly<T> previous = Head;
+            ItemSingly<T> current = Head.Next;
 
             for (int i = 0; i <= index; i++)
             {
@@ -80,26 +80,15 @@ namespace LinkedLists
 
         private void SetHeadAndTail(T data)
         {
-            var item = new Item<T>(data);
-            Head = item;
-            Tail = item;
+            var ItemSingly = new ItemSingly<T>(data);
+            Head = ItemSingly;
+            Tail = ItemSingly;
             Count++;
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            Item<T> current = Head;
-
-            while (current != null)
-            {
-                yield return current.Data;
-                current = current.Next;
-            }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            Item<T> current = Head;
+            ItemSingly<T> current = Head;
 
             while (current != null)
             {
@@ -120,7 +109,7 @@ namespace LinkedLists
                 }
 
                 T result = default(T);
-                Item<T> current = Head;
+                ItemSingly<T> current = Head;
 
                 for (int i = 0; i <= index; i++)
                 {
@@ -141,7 +130,7 @@ namespace LinkedLists
                         "так же он не должен выходить за пределы массива.", nameof(index));
                 }
 
-                Item<T> current = Head;
+                ItemSingly<T> current = Head;
 
                 for (int i = 0; i <= index; i++)
                 {

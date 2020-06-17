@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace LinkedLists
+namespace Model_SinglyLinkedList
 {
-    public class Item<T>
+    public class ItemSingly<T>
     {
         private T data = default(T);
 
@@ -20,9 +20,9 @@ namespace LinkedLists
                     throw new ArgumentNullException("Данные не могут быть null.", nameof(value));
             }
         }
-        public Item<T> Next { get; set; } = null;
+        public ItemSingly<T> Next { get; set; } = null;
 
-        public Item(T data)
+        public ItemSingly(T data)
         {
             Data = data;
         }

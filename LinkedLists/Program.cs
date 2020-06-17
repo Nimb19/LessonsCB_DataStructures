@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using Model_CircularLinkedList;
+using Model_SinglyLinkedList;
 
 namespace LinkedLists
 {
@@ -7,11 +8,72 @@ namespace LinkedLists
     {
         static void Main(string[] args)
         {
-            TestSinglyLinkedList();
+            //TestSinglyLinkedList();
+
+            TestCircularLinkedList();
 
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Тест пройден!
+        /// </summary>
+        private static void TestCircularLinkedList()
+        {
+            CircularLinkedList<int> list = new CircularLinkedList<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(i);
+            }
+
+            foreach(var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Вывожу от 0 до 5: ");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+
+            Console.WriteLine("Удаляй первый третий и последний элементы: ");
+            list.Remove(0);
+            list.Remove(2);
+            list.Remove(0);
+
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nПрибавляю к каждому + 3 и вывожу: ");
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] += 3;
+                Console.WriteLine(list[i]);
+            }
+
+
+            Console.WriteLine("Добавляю два элемента (4 и 5):");
+            list.Add(4);
+            list.Add(5);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nДобавляю ко всем +3 и вывожу их с помощью цикла:");
+            for (int i = 0; i < 4; i++)
+            {
+                list[i] += 3;
+                Console.WriteLine(list[i]);
+            }
+        }
+
+        /// <summary>
+        /// Тест пройден!
+        /// </summary>
         private static void TestSinglyLinkedList()
         {
             var list = new SinglyLinkedList<string>();

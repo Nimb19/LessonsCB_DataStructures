@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Item.cs" />
-    <Compile Include="LinkedList.cs" />
+    <Compile Include="Model_CircularLinkedList\CircularLinkedList.cs" />
+    <Compile Include="Model_CircularLinkedList\ItemCircular.cs" />
+    <Compile Include="Model_SinglyLinkedList\ItemSingly.cs" />
+    <Compile Include="Model_SinglyLinkedList\SinglyLinkedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
