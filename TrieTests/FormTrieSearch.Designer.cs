@@ -40,7 +40,7 @@
             this.listBoxWords.FormattingEnabled = true;
             this.listBoxWords.Location = new System.Drawing.Point(12, 62);
             this.listBoxWords.Name = "listBoxWords";
-            this.listBoxWords.Size = new System.Drawing.Size(296, 472);
+            this.listBoxWords.Size = new System.Drawing.Size(296, 446);
             this.listBoxWords.TabIndex = 0;
             // 
             // tbSearch
