@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTrees", "BinaryTrees\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrieTests", "TrieTests\TrieTests.csproj", "{79DCEE91-E668-4634-A60F-825C1BA53214}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{CD9A71B7-2B38-4B53-9872-E8E661975EAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{79DCEE91-E668-4634-A60F-825C1BA53214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79DCEE91-E668-4634-A60F-825C1BA53214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79DCEE91-E668-4634-A60F-825C1BA53214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9A71B7-2B38-4B53-9872-E8E661975EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9A71B7-2B38-4B53-9872-E8E661975EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9A71B7-2B38-4B53-9872-E8E661975EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9A71B7-2B38-4B53-9872-E8E661975EAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
